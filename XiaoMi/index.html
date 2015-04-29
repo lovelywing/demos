@@ -9,23 +9,24 @@
             padding: 0px;
         }
         body{
-            background: url("white1.png") no-repeat;
+            background: url("images/white1.png") no-repeat;
         }
         #up{
-            background: #000000 url("black1.png") no-repeat;
-            width: 540px;
-            height: 560px;
+            background: black url("images/black1.png") no-repeat;
+            height: 650px;
+            width: 500px;
+            top: -3px;
             position: relative;
         }
         #button{
-            background: url("button.png");
+            background:url("images/button.png");
             width: 42px;
             height: 42px;
             right: -21px;
-            bottom: 40px;
+            bottom: 35px;
             position: absolute;
+            display: none;
         }
-
     </style>
 </head>
 <body>
@@ -35,14 +36,34 @@
     </div>
 </div>
 <script>
-    var up = document.getElementById("up");
-    var btn =document.getElementById("button");
+    var up=document.getElementById("up")
+    var btn=document.getElementById("button")
+
     btn.onmousedown=function(){
-        btn.onmousemove=function(event){
-            up.style.width=
+        document.onmousemove=function(event){
+            up.style.width=event.pageX+"px"
         }
 
+        btn.onmouseup=function(){
+        document.onmousemove=null;
+        }
     }
+    var iSpeed=10
+    var timer=setInterval(function(){
+        if(up.offsetWidth>1105){
+            iSpeed=-10;
+            up.style.width=up.offsetWidth+iSpeed+"px"
+        }else{
+            up.style.width=up.offsetWidth+iSpeed+"px"
+        }
+        if(up.offsetWidth<50){
+            clearInterval(timer);
+            btn.style.display="block"
+
+        }
+
+    },30)
 </script>
+
 </body>
 </html>
