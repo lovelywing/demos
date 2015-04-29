@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background: url("white1.png") no-repeat;
+        }
+        #up{
+            background: #000000 url("black1.png") no-repeat;
+            width: 540px;
+            height: 560px;
+            position: relative;
+        }
+        #button{
+            background: url("button.png");
+            width: 42px;
+            height: 42px;
+            right: -21px;
+            bottom: 40px;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+<div id="up">
+    <div id="button">
+
+    </div>
+</div>
+<script>
+    var up = document.getElementById("up");
+    var btn =document.getElementById("button");
+    btn.onmousedown=function(){
+        btn.onmousemove=function(event){
+            up.style.width=
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>football随意拖拽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #football{
+            background: url("images/football.jpg");
+            width: 196px;
+            height: 196px;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="football"></div>
+<script>
+    var oBall=document.getElementById("football");
+    function fnMove(){
+        oBall.style.left=event.clientX-x+"px";
+        oBall.style.top=event.clientY-y+"px";
+    }
+    if(oBall.addEventListener){
+        document.addEventListener("mousedown",function(){
+            //当鼠标点击就需要获得偏移量初次定位保存
+            x=event.clientX-oBall.offsetLeft;
+            y=event.clientY-oBall.offsetTop;
+            document.addEventListener("mousemove",fnMove,false);
+        },false);
+        document.addEventListener("mouseup",function(){
+            document.removeEventListener("mousemove",fnMove);
+        },false);
+
+    }else if(oBall.attachEvent){
+        document.attachEvent("onmousedown",function(){
+          //全局变量，外部就可以读取了~当鼠标点击就需要获得偏移量初次定位保存
+            x=event.clientX-oBall.offsetLeft;
+            y=event.clientY-oBall.offsetTop;
+          document.attachEvent("onmousemove",fnMove);
+            document.attachEvent("onmouseup",function(){
+                document.detachEvent("onmousemove",fnMove)
+            });
+        });
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #ball {
+            width: 196px;
+            height: 196px;
+            background: url("football.jpg") no-repeat;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="START"/>
+<input type="button" id="button" value="STOP"/>
+
+<div id="ball"></div>
+<script>
+    var oBall = document.getElementById("ball");
+    var oBtn = document.getElementById("btn");
+    var oBtnStop = document.getElementById("button");
+    var iSpeedX = 10;
+    var iSpeedY = 10;
+    var timer = null;
+    oBtnStop.onclick = function () {
+        if (!timer) return;  //如果已经停止，那么再次点击按钮，也不会产生效果；
+        clearInterval(timer);
+        timer = null;
+    }
+    oBtn.onclick = function () {
+            if (timer) return;  //如果已经开始，那么再次点击开始按钮，也不会重复产生效果；
+        timer = setInterval(function () {
+            oBall.style.top = oBall.offsetTop + iSpeedY + "px";
+            oBall.style.left = oBall.offsetLeft + iSpeedX + "px";
+            var clientHeight = document.documentElement.clientHeight;       //碰到浏览器底部（高度）
+            var clientWidth = document.documentElement.clientWidth;
+            if (oBall.offsetTop > clientHeight - oBall.offsetHeight) {
+                oBall.style.top = clientHeight - oBall.offsetHeight + "px"
+                iSpeedY = -iSpeedY
+            }
+            if (oBall.offsetTop < 0) {
+                oBall.style.top = 0;
+                iSpeedY = -iSpeedY;
+            }
+
+            if (oBall.offsetLeft > clientWidth - oBall.offsetWidth) {
+                oBall.style.left = clientWidth - oBall.offsetWidth + "px"
+                iSpeedX = -iSpeedX
+            }
+            if (oBall.offsetLeft < 0) {
+                oBall.style.left = 0;
+                iSpeedX = -iSpeedX;
+            }
+        }, 30)
+
+    }
+</script>
+</body>
+</html>
