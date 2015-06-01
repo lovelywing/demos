@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #massages{
+            width: 500px;
+            height: 500px;
+            border: 2px red solid;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<textarea name="" id="text" cols="30" rows="10"></textarea>
+<input type="button" value="提交" id="btn"/>
+<div id="massages"></div>
+<script>
+    var oText=document.getElementById("text");
+    var oBtn=document.getElementById("btn");
+    var oMassages=document.getElementById("massages");
+    if(oBtn.addEventListener){
+        oBtn.addEventListener("click",function(){
+            var oEle=document.createElement("p");
+            var text=oText.value;
+            oEle.innerHTML=text
+            oMassages.appendChild(oEle);
+            oMassages.insertBefore(oEle,oMassages.firstChild);
+
+            oText.value=""
+        },false);
+    }
+
+</script>
+</body>
+</html>
