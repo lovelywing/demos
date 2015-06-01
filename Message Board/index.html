@@ -34,6 +34,16 @@
 
             oText.value=""
         },false);
+    } else if(oBtn.attachEvent){
+        oBtn.attachEvent("onclick",function(){
+            var oEle=document.createElement("p");
+            var text=oText.value;
+            oEle.innerHTML=text
+            oMassages.appendChild(oEle);
+            oMassages.insertBefore(oEle,oMassages.firstChild);
+
+            oText.value=""
+        })
     }
 
 </script>
