@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="reset.css"/>
+    <style>
+
+        @font-face{
+            font-family: "BOND";
+            src: url("font-family/e33f2c3e-1652-4366-a060-49534a5c9cc7.woff");
+        }
+        @font-face{
+            font-family: "everyone";
+            src: url("font-family/46d0af3b-0a73-452c-96d4-1e09781d6fba.woff");
+        }
+
+        .box{
+            background: url("images/start-spiral.gif") no-repeat center center;
+            width: 200%;
+            height: 200%;
+            position: fixed;
+            top:-50%;
+            left: -50%;
+            z-index: -1;
+        }
+        .box h1{
+            font-family: "BOND";
+            position: absolute;
+            z-index: 1;
+            color: #fff;
+             left: 50%;
+             top: 50%;
+            font-size: 220px;
+             margin-left: -315px;
+             margin-top: -105px;
+             line-height: 200px;
+             white-space: nowrap;
+        }
+        .Font{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 380px;
+            margin-left:84px;
+            margin-top: 80px;
+            padding-bottom: 70px;
+        }
+        .Font h2{
+            margin: 30px 0 20px;
+            font-size: 32px;
+            font-family: "BOND";
+            line-height: 28px;
+            color: #e3cad2;
+            text-transform: uppercase;
+        }
+        .Font p{
+            color: white;
+            font-family: "everyone";
+        }
+        .Font a{
+            font-family: "everyone";
+            position: absolute;
+            bottom: 0;
+            left: -0.8em;
+            padding: 0.4em 1em;
+            font-size: 1.2em;
+            color: #454551;
+            background-color:#e3cad2;
+            border-radius: 40px;
+        }
+        .Font a:hover{
+            background-color:white;
+        }
+
+        .carpic{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 211px;
+            height: 211px;
+            border: 3px solid #7E5555;
+            margin-left: -150px;
+            margin-top: -111px;
+            border-radius: 50%;
+            z-index: 3;
+            /*background:#e3cad2 url(images/carpic.png) no-repeat center center ;*/
+            background-size: contain;
+            background-color: #e3cad2;
+            background-image: url(images/carpic.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .carpic:hover{
+            background-color:#7E5555;
+        }
+
+        .d{
+        margin-left: -70px;
+        }
+        .n{
+        margin-left: -50px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <h1>
+        <span class="b">B</span>
+        <span class="o">O</span>
+        <span class="n">N</span>
+        <span class="d">D</span>
+    </h1>
+    <div class="Font">
+        <h2>LICENCE TO DRIVE</h2>
+        <p>Everyone has a favourite Bond - and a favourite Bond girl - but what's your favourite Bond car?</p>
+        <a href="#">Scroll through time to find out</a>
+    </div>
+    <div class="carpic"> </div>
+</div>
+</body>
+</html>
